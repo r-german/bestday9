@@ -1,0 +1,270 @@
+footer {
+    background-color: $violet2;
+    .container {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        column-gap: 90px;
+        row-gap: 45px;
+        padding: 80px 120px 50px 120px;
+        .footer__text {
+            font-size: 16px;
+            display: flex;
+            flex-direction: column;
+            span {
+                flex: 1 1 auto;
+                line-height: 156%;
+                text-align: center;
+                color: $white;
+            }
+            a {
+                margin: 0 auto 4px auto;
+                text-underline-offset: 3px;
+            }
+        }
+        .form-open-btn {align-self: center;}
+        .footer__contacts {
+            font-size: 15px;
+            .contacts__address {
+                display: block;
+                line-height: 130%;
+                text-align: center;
+                color: $white;
+            }
+            .contacts__phone-numbers {
+                display: grid;
+                grid-auto-flow: column;
+                justify-content: center;
+                column-gap: 5px;
+                row-gap: 8px;
+                margin: 12px 0;
+                span {
+                    grid-row: 1/3;
+                    color: $white;
+                }
+            }
+            .contacts__mail {
+                display: flex;
+                justify-content: center;
+                span {color: $white;}
+                a {margin-left: 5px;}
+            }
+        }
+        .footer__write-us {
+            align-self: start;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            column-gap: 12px;
+            row-gap: 20px;
+            span {
+                grid-column: 1/4;
+                font-size: 16px;
+                text-align: center;
+                color: $white;
+            }
+            a {
+                svg {display: block;}
+            }
+            .vk-link {
+                svg {width: 40px;}
+            }
+            .wa-link {
+                svg {width: 29px;}
+            }
+            .telegram-link {
+                svg {width: 31px;}
+            }
+        }
+        .footer__bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .bottom__scroll-to-top {
+                transform: rotate(90deg);
+                display: flex;
+                span {
+                    font-family: "AmaticSC-Bold";
+                    font-size: 60px;
+                    color: $red1;
+                    text-shadow: 4px 0 4px rgba(0, 0, 0, 0.25);
+                }
+                span:nth-child(2) {margin-left: -5px;}
+            }
+            @media (hover: hover) and (pointer: fine) {
+                .bottom__scroll-to-top {
+                    transform: translate3d(0, 0, 0) rotate(90deg);
+                    span {
+                        transform: translate3d(0, 0, 0);
+                        transition: transform 0.3s, color 0.3s;
+                    }
+                }
+                .bottom__scroll-to-top:hover {
+                    span {
+                        transform: translate3d(-5px, 0, 0);
+                        color: $orange1;
+                    }
+                }
+            }
+            .white-link {display: none;}
+            .bottom__text {
+                color: $orange2;
+                margin-top: 30px;
+            }
+        }
+        .footer__vk-links {
+            align-self: start;
+            display: grid;
+            justify-content: center;
+            column-gap: 10px;
+            row-gap: 20px;
+            .vk-links__text {
+                grid-column: 1/5;
+                font-size: 16px;
+                text-align: center;
+                color: $white;
+            }
+            a {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                svg {width: 40px;}
+                span {
+                    font-size: 12px;
+                    margin-top: 6px;
+                    color: $white;
+                }
+            }
+        }
+        @media (hover: hover) and (pointer: fine) {
+            a, button {
+                position: relative;
+                z-index: 2;
+            }
+        }
+    }
+}
+
+@media (max-width: 1300.9px) and (min-width: 321px) {
+    footer {
+        .container {
+            row-gap: calc(30px + (45 - 30) * ((100vw - 321px) / (1300 - 321)));
+            padding-top: calc(50px + (80 - 50) * ((100vw - 321px) / (1300 - 321)));
+            padding-bottom: calc(35px + (50 - 35) * ((100vw - 321px) / (1300 - 321)));
+            .footer__text {font-size: calc(12px + (16 - 12) * ((100vw - 321px) / (1300 - 321)));}
+            .footer__contacts {font-size: calc(11px + (15 - 11) * ((100vw - 321px) / (1300 - 321)));}
+            .footer__write-us, .footer__vk-links {row-gap: calc(16px + (20 - 16) * ((100vw - 321px) / (1300 - 321)));}
+            .footer__write-us {
+                span {font-size: calc(12px + (16 - 12) * ((100vw - 321px) / (1300 - 321)));}
+            }
+            .footer__bottom {
+                .bottom__text {margin-top: calc(20px + (30 - 20) * ((100vw - 321px) / (1300 - 321)));}
+                .white-link {font-size: calc(12px + (16 - 12) * ((100vw - 321px) / (1300 - 321)));}
+            }
+            .footer__vk-links {
+                .vk-links__text {font-size: calc(12px + (16 - 12) * ((100vw - 321px) / (1300 - 321)));}
+            }
+        }
+    }
+}
+
+@media (max-width: 1300.9px) and (min-width: 992px) {
+    footer {
+        .container {
+            column-gap: calc(60px + (90 - 60) * ((100vw - 992px) / (1300 - 992)));
+            padding-left: calc(80px + (120 - 80) * ((100vw - 992px) / (1300 - 992)));
+            padding-right: calc(80px + (120 - 80) * ((100vw - 992px) / (1300 - 992)));
+        }
+    }
+}
+
+@media (max-width: 991.9px) {
+    footer {
+        .container {
+            max-width: 592px;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 60px;
+            padding-left: 20px;
+            padding-right: 20px;
+            .form-open-btn, .footer__bottom {grid-column: 1/3;}
+            .form-open-btn {
+                order: 5;
+                justify-self: center;
+                margin-top: 3px;
+            }
+            .footer__bottom {order: 6;}
+        }
+    }
+}
+
+@media (max-width: 767.9px) {
+    footer {
+        .container {
+            max-width: 542px;
+            column-gap: 40px;
+        }
+    }
+}
+
+@media (max-width: 600.9px) {
+    footer {
+        .container {
+            grid-template-columns: 1fr;
+            .form-open-btn, .footer__bottom {grid-column: auto;}
+            .footer__text {
+                justify-self: center;
+                span {max-width: 300px;}
+                a {display: none;}
+            }
+            .footer__contacts {
+                display: grid;
+                justify-content: center;
+                column-gap: 20px;
+                row-gap: 30px;
+                .contacts__address {grid-column: 1/3;}
+                .contacts__phone-numbers {margin: 0;}
+                .contacts__mail {align-self: start;}
+            }
+            .footer__bottom {
+                .bottom__scroll-to-top {
+                    span {font-size: 50px;}
+                }
+                .white-link {
+                    display: block;
+                    margin-top: 30px;
+                    text-underline-offset: 3px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 360.9px) {
+    footer {
+        .container {
+            .footer__contacts {column-gap: 12px;}
+        }
+    }
+}
+
+@media (max-width: 320.9px) {
+    footer {
+        .container {
+            row-gap: 30px;
+            padding-top: 50px;
+            padding-bottom: 35px;
+            .footer__text {font-size: 12px;}
+            .footer__contacts {font-size: 11px;}
+            .footer__write-us, .footer__vk-links {row-gap: 16px;}
+            .footer__write-us {
+                span {font-size: 12px;}
+            }
+            .footer__bottom {
+                .bottom__text {margin-top: 20px;}
+                .white-link {font-size: 12px;}
+            }
+            .footer__vk-links {
+                .vk-links__text {font-size: 12px;}
+            }
+        }
+    }
+}

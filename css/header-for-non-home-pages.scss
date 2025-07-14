@@ -1,0 +1,332 @@
+.header2 {
+    position: sticky;
+    z-index: 3;
+    top: 0;
+    padding: 22px 0;
+    background-color: rgb(167, 50, 71);
+    .container {
+        padding: 0 90px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .header2__logo {
+            img {
+                display: block;
+                height: 49px;
+            }
+        }
+        .form-open-btn {
+            font-size: 14px;
+            padding: 8px 16px 10px 16px;
+            color: $white;
+            border: 1px solid;
+            border-color: $white;
+            background-color: transparent;
+        }
+        .header2__nav {
+            nav {
+                display: grid;
+                grid-auto-flow: column;
+                column-gap: 18px;
+                a {font-size: 16px;}
+                a:not(.white-link) {color: #fff4c0;}
+            }
+        }
+        .header2__social-network {
+            display: grid;
+            grid-auto-flow: column;
+            align-items: center;
+            column-gap: 12px;
+            a {
+                svg {display: block;}
+            }
+            .vk-link {
+                svg {width: 40px;}
+            }
+            .wa-link {
+                svg {width: 29px;}
+            }
+            .telegram-link {
+                svg {width: 31px;}
+            }
+        }
+        .header2__burger-box {display: none;}
+        @media (hover: hover) and (pointer: fine) {
+            .form-open-btn {
+                will-change: transform;
+                transition: transform 0.3s, color 0.3s, border-color 0.3s;
+            }
+            .form-open-btn:hover {
+                transform: translate3d(0, 0, 0) scale(1.05);
+                color: #fff4c0;
+                border-color: #fff4c0;
+            }
+            .white-link:hover {color: #fff4c0;}
+            .vk-link:hover, .wa-link:hover {
+                transform: translate3d(0, 0, 0) scale(1.1);
+                svg {
+                    path {stroke: #fff4c0;}
+                }
+            }
+            .telegram-link:hover {
+                transform: translate3d(0, 0, 0) scale(1.1);
+                svg {
+                    path {fill: #fff4c0;}
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1300.9px) and (min-width: 992px) {
+    .header2 {
+        padding: calc(16px + (22 - 16) * ((100vw - 992px) / (1300 - 992))) 0;
+        .container {
+            padding: 0 calc(40px + (90 - 40) * ((100vw - 992px) / (1300 - 992)));
+            .header2__logo {
+                img {height: calc(40px + (49 - 40) * ((100vw - 992px) / (1300 - 992)));}
+            }
+            .form-open-btn {
+                font-size: calc(12px + (14 - 12) * ((100vw - 992px) / (1300 - 992)));
+                padding: 8px calc(10px + (16 - 10) * ((100vw - 992px) / (1300 - 992)))
+                         10px calc(10px + (16 - 10) * ((100vw - 992px) / (1300 - 992)));
+            }
+            .header2__nav {
+                nav {
+                    column-gap: calc(14px + (18 - 14) * ((100vw - 992px) / (1300 - 992)));
+                    a {font-size: calc(13px + (16 - 13) * ((100vw - 992px) / (1300 - 992)));}
+                }
+            }
+            .header2__social-network {
+                .vk-link {
+                    svg {width: calc(36px + (40 - 36) * ((100vw - 992px) / (1300 - 992)));}
+                }
+                .wa-link {
+                    svg {width: calc(25px + (29 - 25) * ((100vw - 992px) / (1300 - 992)));}
+                }
+                .telegram-link {
+                    svg {width: calc(27px + (31 - 27) * ((100vw - 992px) / (1300 - 992)));}
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 991.9px) {
+    .header2 {
+        padding: 16px 0;
+        .container {
+            max-width: 580px;
+            padding: 0 30px;
+            .header2__logo {
+                img {height: 40px;}
+            }
+            .header2__burger-box {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+		        width: 40px;
+                height: 40px;
+                transform: translate3d(5px, 0, 0);
+                .burger-box__icon {
+                    position: relative;
+                    width: 30px;
+                    height: 20px;
+                    cursor: pointer;
+                    span, &::before, &::after {
+                        position: absolute;
+                        left: 0;
+                        height: 10%;
+                        width: 100%;
+                        transition: all 0.3s ease;
+                        background-color: $white;
+                    }
+                    &::before, &::after {
+                        content: "";
+                        transform: translate3d(0, 0, 0);
+                    }
+                    &::before {top: 0;}
+                    &::after {bottom: 0;}
+                    span {
+                        top: 50%;
+                        transform: translate3d(0, -50%, 0) scale(1);
+                    }
+                }
+            }
+            .header2__burger-box._active {
+                .burger-box__icon {
+                    span {transform: translate3d(0, -50%, 0) scale(0);}
+                    &::before {
+                        top: 9px;
+                        transform: translate3d(0, 0, 0) rotate(-45deg);
+                    }
+                    &::after {
+                        bottom: 9px;
+                        transform: translate3d(0, 0, 0) rotate(45deg);
+                    }
+                }
+            }
+            .header2__nav {
+                position: absolute;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 72px);
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.8s, visibility 0.8s;
+                transform: translate3d(0, 0, 0);
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-start;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.7);
+                nav{
+                    padding: 0 28px;
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: max-height 0.8s;
+                    grid-auto-flow: row;
+                    background-color: $white;
+                    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+                    a{
+                        font-size: 13px;
+                        margin-top: 20px;
+                        &:first-child {margin-top: 28px;}
+                        &:last-child {margin-bottom: 28px;}
+                    }
+                    a:not(.white-link) {color: $red2;}
+                    .white-link {color: inherit;}
+                    @media (hover: hover) and (pointer: fine) {
+                        .white-link:hover {color: $red2;}
+                    }
+                }
+            }
+            .header2__nav._active {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}
+
+@media (max-width: 767.9px) {
+    .header2 {
+        padding: 12px 0;
+        .container {
+            max-width: 520px;
+            .header2__logo {
+                img {height: 36px;}
+            }
+            .form-open-btn {
+                font-size: 13px;
+                padding: 8px 12px 10px 12px;
+            }
+            .header2__social-network {
+                .vk-link {
+                    svg {width: 36px;}
+                }
+                .wa-link {
+                    svg {width: 25px;}
+                }
+                .telegram-link {
+                    svg {width: 27px;}
+                }
+            }
+            .header2__burger-box {height: 36px;}
+            .header2__nav {
+                top: 60px;
+                height: calc(100vh - 60px);
+            }
+        }
+    }
+}
+
+@media (max-width: 480.9px) and (min-width: 321px) {
+    .header2 {
+        .container {
+            padding: 0 calc(12px + (30 - 12) * ((100vw - 321px) / (480 - 321)));
+            .form-open-btn {
+                font-size: calc(9px + (12 - 9) * ((100vw - 321px) / (480 - 321)));
+                padding: 6px calc(8px + (10 - 8) * ((100vw - 321px) / (480 - 321)))
+                         8px calc(8px + (10 - 8) * ((100vw - 321px) / (480 - 321)));
+            }
+            .header2__social-network {
+                column-gap: calc(8px + (12 - 8) * ((100vw - 321px) / (480 - 321)));
+                .vk-link {
+                    svg {width: calc(28px + (32 - 28) * ((100vw - 321px) / (480 - 321)));}
+                }
+                .wa-link {
+                    svg {width: calc(17px + (21 - 17) * ((100vw - 321px) / (480 - 321)));}
+                }
+                .telegram-link {
+                    svg {width: calc(19px + (23 - 19) * ((100vw - 321px) / (480 - 321)));}
+                }
+            }
+            .header2__burger-box {
+                .burger-box__icon {width: calc(24px + (30 - 24) * ((100vw - 321px) / (480 - 321)));}
+            }
+        }
+    }
+}
+
+@media (max-width: 480.9px) {
+    .header2 {
+        .container {
+            .header2__logo {
+                img {height: 30px;}
+            }
+            .header2__burger-box {
+                height: 30px;
+                width: auto;
+                transform: translate3d(0, 0, 0);
+            }
+            .header2__nav {
+                top: 54px;
+                height: calc(100vh - 54px);
+            }
+        }
+    }
+}
+
+@media (max-width: 360.9px) {
+    .header2 {
+        .container {
+            .header2__logo {
+                img {height: 28px;}
+            }
+            .header2__burger-box {height: 28px;}
+            .header2__nav {
+                top: 52px;
+                height: calc(100vh - 52px);
+            }
+        }
+    }
+}
+
+@media (max-width: 320.9px) {
+    .header2 {
+        .container {
+            padding: 0 12px;
+            .form-open-btn {
+                font-size: 9px;
+                padding: 6px 8px 8px 8px;
+            }
+            .header2__social-network {
+                column-gap: 8px;
+                .vk-link {
+                    svg {width: 28px;}
+                }
+                .wa-link {
+                    svg {width: 17px;}
+                }
+                .telegram-link {
+                    svg {width: 19px;}
+                }
+            }
+            .header2__burger-box {
+                .burger-box__icon {width: 24px;}
+            }
+        }
+    }
+}
